@@ -5,7 +5,7 @@ from datetime import datetime
 import boto3
 import codecs
 
-session = boto3.session.Session(profile_name="phx", region_name = "us-east-1")
+session = boto3.session.Session(profile_name="phx_", region_name = "us-east-1")
 
 def lambda_handler(event, context):
     
