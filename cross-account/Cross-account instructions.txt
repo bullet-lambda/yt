@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------------------------------
-[1]  On the purple s3 account, go to policies and create a policy called "s3-list-P"
+[1]  On the purple s3 account, go to policies and create a policy called "s3-list-Z"
 ----------------------------------------------------------------------------------------------------------------------------
 
 Create Policy
@@ -12,12 +12,12 @@ Check "ListAllMyBuckets"
 
 Next
 
-Call it "s3-list-P"
+Call it "s3-list-Z"
 
 Create Policy
 
 ----------------------------------------------------------------------------------------------------------------------------
-[2] On the purple s3 account, go to roles and create a role called "CrossP"
+[2] On the purple s3 account, go to roles and create a role called "CrossZ"
 ----------------------------------------------------------------------------------------------------------------------------
 
 Create Role
@@ -42,16 +42,16 @@ click next
 
 type list-
 
-select the radio button next to "s3-list-P"
+select the radio button next to "s3-list-Z"
 
 next
 
-Name the role "CrossP"
+Name the role "CrossZ"
 
 Create role
 
 ----------------------------------------------------------------------------------------------------------------------------
-[3] On the blue lambda account, (in this case the one starting with 8649), create a policy called "Cross-Account-Policy-P"
+[3] On the blue lambda account, (in this case the one starting with 8649), create a policy called "Cross-Account-Policy-Z"
 ----------------------------------------------------------------------------------------------------------------------------
 
 Go to IAM
@@ -66,19 +66,19 @@ Click add ARNs
 
 Find out the number of your target account
 
-Enter arn:aws:iam::xxxxxxxxxxxx:role/CrossP
+Enter arn:aws:iam::xxxxxxxxxxxx:role/CrossZ
 
 Where xxxxxxxxxxxx is the number of your target account
 
 In this case I will add:
 
-arn:aws:iam::011698514599:role/CrossP
+arn:aws:iam::011698514599:role/CrossZ
 
 Add ARNs
 
 Next 
 
-For Policy Name - call the role "Cross-Account-Policy-P"
+For Policy Name - call the role "Cross-Account-Policy-Z"
 
 Click create policy. 
 
@@ -104,7 +104,7 @@ At the bottom click View the [name]-role-xxxxxxxx role  on the IAM console.
 
 Click add permissions
 
-Attach policies, type the role you created earlier: "Cross-Account-Policy-P"
+Attach policies, type the role you created earlier: "Cross-Account-Policy-Z"
 
 Check the box and add permissions
 
@@ -131,7 +131,7 @@ def lambda_handler(event, context):
     # Call the assume_role method of the STSConnection object and pass the role
     # ARN and a role session name.
     assumed_role_object=sts_client.assume_role(
-        RoleArn="arn:aws:iam::xxxxxxxxxxxx:role/CrossP",
+        RoleArn="arn:aws:iam::xxxxxxxxxxxx:role/CrossZ",
         RoleSessionName="AssumeRoleSession1"
     )
     
