@@ -1,37 +1,4 @@
-[1] On the blue lambda account, (in this case the one starting with 8649), create a policy called "Cross-Account-Policy-P"
-
-Go to IAM
-
-Create policy
-
-For service, choose STS
-
-under Write, choose AssumeRole
-
-Click add ARNs
-
-Find out the number of your target account
-
-Enter arn:aws:iam::xxxxxxxxxxxx:role/CrossP
-
-Where xxxxxxxxxxxx is the number of your target account
-
-In this case I will add:
-
-arn:aws:iam::011698514599:role/CrossP
-
-Add ARNs
-
-Next 
-
-For Policy Name - call the role "Cross-Account-Policy-P"
-
-Click create policy. 
-
-
-
-
-[2] On the purple s3 account, go to policies and create a policy called "s3-list-P"
+[1]  On the purple s3 account, go to policies and create a policy called "s3-list-P"
 
 Create Policy
 
@@ -47,10 +14,9 @@ Call it "s3-list-P"
 
 Create Policy
 
+---------------------------------------------------------------------------------------------------------------
 
-
-
-[3] On the purple s3 account, go to roles and create a role called "CrossP"
+[2] On the purple s3 account, go to roles and create a role called "CrossP"
 
 Create Role
 
@@ -82,8 +48,39 @@ Name the role "CrossP"
 
 Create role
 
+---------------------------------------------------------------------------------------------------------------
 
+[3] On the blue lambda account, (in this case the one starting with 8649), create a policy called "Cross-Account-Policy-P"
 
+Go to IAM
+
+Create policy
+
+For service, choose STS
+
+under Write, choose AssumeRole
+
+Click add ARNs
+
+Find out the number of your target account
+
+Enter arn:aws:iam::xxxxxxxxxxxx:role/CrossP
+
+Where xxxxxxxxxxxx is the number of your target account
+
+In this case I will add:
+
+arn:aws:iam::011698514599:role/CrossP
+
+Add ARNs
+
+Next 
+
+For Policy Name - call the role "Cross-Account-Policy-P"
+
+Click create policy. 
+
+---------------------------------------------------------------------------------------------------------------
 
 [4] Go to the blue lambda account Create a lambda function
 
@@ -117,8 +114,9 @@ CLick save.
 
 Using the lambda code inside the dotted lines below, replace the xxxxxx with the purple s3 account number. 
 
-# =======================================================
+---------------------------------------------------------------------------------------------------------------
 
+# [4] Also add code
 import boto3
 
 def lambda_handler(event, context):
