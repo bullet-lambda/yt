@@ -148,8 +148,8 @@ def lambda_handler(event, context):
         print(bucket.name)
 
 if __name__ == '__main__':
-    event = "1111"
-    context = "2222"
+    event = "foo"
+    context = "bar"
     lambda_handler(event, context)
 
 # =======================================================
